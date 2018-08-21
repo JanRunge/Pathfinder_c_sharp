@@ -16,5 +16,15 @@ namespace Pathfinder_c_sharp
         {
             InitializeComponent();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonGenerate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
