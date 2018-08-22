@@ -34,13 +34,14 @@
             this.textBoxDelay = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxSizeX = new System.Windows.Forms.TextBox();
-            this.textBoxSizeY = new System.Windows.Forms.TextBox();
-            this.textBoxDensity = new System.Windows.Forms.TextBox();
             this.buttonDefault = new System.Windows.Forms.Button();
+            this.textBoxDensity = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxSizeY = new System.Windows.Forms.TextBox();
+            this.textBoxSizeX = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -105,14 +106,21 @@
             this.panel2.Size = new System.Drawing.Size(96, 133);
             this.panel2.TabIndex = 5;
             // 
-            // label2
+            // buttonDefault
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-3, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Size X";
+            this.buttonDefault.Location = new System.Drawing.Point(41, 77);
+            this.buttonDefault.Name = "buttonDefault";
+            this.buttonDefault.Size = new System.Drawing.Size(55, 23);
+            this.buttonDefault.TabIndex = 9;
+            this.buttonDefault.Text = "Default";
+            this.buttonDefault.UseVisualStyleBackColor = true;
+            // 
+            // textBoxDensity
+            // 
+            this.textBoxDensity.Location = new System.Drawing.Point(41, 51);
+            this.textBoxDensity.Name = "textBoxDensity";
+            this.textBoxDensity.Size = new System.Drawing.Size(55, 20);
+            this.textBoxDensity.TabIndex = 6;
             // 
             // label3
             // 
@@ -122,6 +130,20 @@
             this.label3.Size = new System.Drawing.Size(42, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Density";
+            // 
+            // textBoxSizeY
+            // 
+            this.textBoxSizeY.Location = new System.Drawing.Point(41, 27);
+            this.textBoxSizeY.Name = "textBoxSizeY";
+            this.textBoxSizeY.Size = new System.Drawing.Size(55, 20);
+            this.textBoxSizeY.TabIndex = 8;
+            // 
+            // textBoxSizeX
+            // 
+            this.textBoxSizeX.Location = new System.Drawing.Point(41, 0);
+            this.textBoxSizeX.Name = "textBoxSizeX";
+            this.textBoxSizeX.Size = new System.Drawing.Size(55, 20);
+            this.textBoxSizeX.TabIndex = 7;
             // 
             // label4
             // 
@@ -133,41 +155,36 @@
             this.label4.Text = "Size Y";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // textBoxSizeX
+            // label2
             // 
-            this.textBoxSizeX.Location = new System.Drawing.Point(41, 0);
-            this.textBoxSizeX.Name = "textBoxSizeX";
-            this.textBoxSizeX.Size = new System.Drawing.Size(55, 20);
-            this.textBoxSizeX.TabIndex = 7;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(-3, 2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Size X";
             // 
-            // textBoxSizeY
+            // tableLayoutPanel1
             // 
-            this.textBoxSizeY.Location = new System.Drawing.Point(41, 27);
-            this.textBoxSizeY.Name = "textBoxSizeY";
-            this.textBoxSizeY.Size = new System.Drawing.Size(55, 20);
-            this.textBoxSizeY.TabIndex = 8;
-            // 
-            // textBoxDensity
-            // 
-            this.textBoxDensity.Location = new System.Drawing.Point(41, 51);
-            this.textBoxDensity.Name = "textBoxDensity";
-            this.textBoxDensity.Size = new System.Drawing.Size(55, 20);
-            this.textBoxDensity.TabIndex = 6;
-            // 
-            // buttonDefault
-            // 
-            this.buttonDefault.Location = new System.Drawing.Point(41, 77);
-            this.buttonDefault.Name = "buttonDefault";
-            this.buttonDefault.Size = new System.Drawing.Size(55, 23);
-            this.buttonDefault.TabIndex = 9;
-            this.buttonDefault.Text = "Default";
-            this.buttonDefault.UseVisualStyleBackColor = true;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(178, 145);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(651, 472);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
@@ -195,6 +212,7 @@
         private System.Windows.Forms.TextBox textBoxDensity;
         private System.Windows.Forms.TextBox textBoxSizeY;
         private System.Windows.Forms.Button buttonDefault;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
 
