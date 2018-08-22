@@ -23,6 +23,7 @@ namespace Pathfinder_c_sharp
             int?[][] Board = new int?[sizeX][];
             Random ran = new Random();
             Maze currentMaze=new Maze(Board, startingpoints);
+            currentFields = new List<int[]>();
             while (!solvable(currentMaze))
             {
                 for (int i = 0; i < Board.Length; i++)
@@ -53,7 +54,14 @@ namespace Pathfinder_c_sharp
                 currentFields.Clear();
                 for (int i = 0; i < amount_startingpoints; i++)
                 {
-                    startingpoints[i] = new int[] { 0, ran.Next(1 + (((sizeY - 1) / amount_startingpoints) * (i - 1)), ((sizeY - 1) / amount_startingpoints) * i) };
+                    Console.WriteLine(1 + (((sizeY - 1) / amount_startingpoints) * (i )));
+                    Console.WriteLine(((sizeY - 1) / amount_startingpoints) * (i+1));
+                    
+                    startingpoints[i] = new int[] { 0,
+                                                    (int)Math.Round((float) ran.Next(1 + (((sizeY - 1) / amount_startingpoints) * (i )),((sizeY - 1) / amount_startingpoints) * (i+1))
+                                                              
+                                                              )
+                                                    };
                     currentFields.Add(new int[] { startingpoints[i][0], startingpoints[i][1] });
                     Board[startingpoints[i][0]][startingpoints[i][1]] = 1;
                 }
