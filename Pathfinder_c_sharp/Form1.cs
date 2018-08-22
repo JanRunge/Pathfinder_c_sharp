@@ -42,7 +42,23 @@ namespace Pathfinder_c_sharp
         }
         public void showMaze(Maze i_maze)
         {
+            int percentPerCol =100/ i_maze.Coords.Length;//percentage of the table that each col occupies
+            int percentPerRow = 100 / i_maze.Coords.Length;
+            this.tableLayoutPanel1.RowCount = 0;
+            this.tableLayoutPanel1.ColumnCount = 0;
+
+
             //print the given Maze
+            int?[][] Board = i_maze.Coords;
+            for (int i = 0; i < Board.Length; i++)
+            {
+                this.tableLayoutPanel1.RowCount = this.tableLayoutPanel1.RowCount + 1;
+                //neue spalte erstellen
+            }
+            for (int k = 0; k < Board[0].Length; k++)
+            {
+                this.tableLayoutPanel1.ColumnCount = this.tableLayoutPanel1.ColumnCount + 1;
+            }
 
         }
     }
