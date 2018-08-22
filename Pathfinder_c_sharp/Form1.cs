@@ -43,7 +43,7 @@ namespace Pathfinder_c_sharp
         public void showMaze(Maze i_maze)
         {
             Console.WriteLine("trying to show");
-            this.tableLayoutPanel1 = new TableLayoutPanel();
+            /*this.tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel1.Visible = true;
             tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             int percentPerCol =100/ i_maze.Coords.Length;//percentage of the table that each col occupies
@@ -78,11 +78,60 @@ namespace Pathfinder_c_sharp
             {
                 Console.WriteLine("showing tablelayout");
                 this.Controls.Add(this.tableLayoutPanel1);
+            }*/
+            if (this.InvokeRequired)
+            {
+                Console.WriteLine("invoking");
+                del d = new del(showMaze);
+                this.Invoke(d, new object[] { i_maze });
             }
-            
+            else
+            {
+                Console.WriteLine("showing tablelayout");
+                int step = 10; //distance between the rows and columns
+                int width = 30; //the width of the rectangle
+                int height = 30; //the height of the rectangle
+                int?[][] Board = i_maze.Coords;
+                using (Graphics g = this.CreateGraphics())
+                {
+                    g.Clear(SystemColors.Control); //Clear the draw area
+                    using (Pen pen = new Pen(Color.White, 2))
+                    {
+                        for (int i = 0; i < Board.Length; i++)
+                        {
+                            for (int k = 0; k < Board[i].Length; k++)
+                            {
+                                if (i_maze.Coords[i][k] == null)
+                                {
+                                    Rectangle rect = new Rectangle(new Point(300 + step * k, 5 + step * i), new Size(width, height));
+                                    g.DrawRectangle(pen, rect);
+                                    g.FillRectangle(System.Drawing.Brushes.Red, rect);
+                                }
+                                else
+                                {
+                                    Rectangle rect = new Rectangle(new Point(300 + step * k, 5 + step * i), new Size(width, height));
+                                    g.DrawRectangle(pen, rect);
+                                    g.FillRectangle(System.Drawing.Brushes.Blue, rect);
+                                }
 
+
+
+
+
+                            }
+                        }
+                    }
+                }
+
+
+
+
+            }
+        }
+
+        private void buttonDefault_Click(object sender, EventArgs e)
+        {
 
         }
-        
     }
 }
