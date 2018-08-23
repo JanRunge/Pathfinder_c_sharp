@@ -16,7 +16,7 @@ namespace Pathfinder_c_sharp
         private Thread myThread;
         Solver mySolver;
         public delegate void del(Maze i_maze);
-        public del handler ;
+        public del handler;
         public Form1()
         {
             InitializeComponent();
@@ -33,9 +33,9 @@ namespace Pathfinder_c_sharp
         {
 
             new Thread(delegate () {
-                mySolver.getBoard(20,20,20);
+                mySolver.getBoard(20, 20, 20);
             }).Start();
-            
+
 
 
             //this.tableLayoutPanel1.
@@ -43,31 +43,7 @@ namespace Pathfinder_c_sharp
         public void showMaze(Maze i_maze)
         {
             Console.WriteLine("trying to show");
-            /*this.tableLayoutPanel1 = new TableLayoutPanel();
-            tableLayoutPanel1.Visible = true;
-            tableLayoutPanel1.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            int percentPerCol =100/ i_maze.Coords.Length;//percentage of the table that each col occupies
-            int percentPerRow = 100 / i_maze.Coords.Length;
-            this.tableLayoutPanel1.RowCount = 0;
-            this.tableLayoutPanel1.ColumnCount = 0;
-
-
-            //print the given Maze
-            int?[][] Board = i_maze.Coords;
-            this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, percentPerRow));
-            for (int i = 0; i < Board.Length; i++)
-            {
-                this.tableLayoutPanel1.RowCount = this.tableLayoutPanel1.RowCount + 1;
-                this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, percentPerRow));
-                //neue spalte erstellen
-            }
-            this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, percentPerCol));
-            for (int k = 0; k < Board[0].Length; k++)
-            {
-                this.tableLayoutPanel1.ColumnCount = this.tableLayoutPanel1.ColumnCount + 1;
-                this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, percentPerCol));
-            }
-
+           
             if (this.InvokeRequired)
             {
                 Console.WriteLine("invoking");
@@ -77,20 +53,9 @@ namespace Pathfinder_c_sharp
             else
             {
                 Console.WriteLine("showing tablelayout");
-                this.Controls.Add(this.tableLayoutPanel1);
-            }*/
-            if (this.InvokeRequired)
-            {
-                Console.WriteLine("invoking");
-                del d = new del(showMaze);
-                this.Invoke(d, new object[] { i_maze });
-            }
-            else
-            {
-                Console.WriteLine("showing tablelayout");
-                int step = 10; //distance between the rows and columns
-                int width = 30; //the width of the rectangle
-                int height = 30; //the height of the rectangle
+                int step = 20; //distance between the rows and columns has to be >max(width,height)
+                int width = 20; //the width of the rectangle
+                int height = 20; //the height of the rectangle
                 int?[][] Board = i_maze.Coords;
                 using (Graphics g = this.CreateGraphics())
                 {
@@ -101,17 +66,28 @@ namespace Pathfinder_c_sharp
                         {
                             for (int k = 0; k < Board[i].Length; k++)
                             {
-                                if (i_maze.Coords[i][k] == null)
+                                Rectangle rect = new Rectangle(new Point(300 + step * k, 5 + step * i), new Size(width, height));
+                                g.DrawRectangle(pen, rect);
+                                if (i_maze.endpoint[0]==i&& i_maze.endpoint[1] ==k)
                                 {
-                                    Rectangle rect = new Rectangle(new Point(300 + step * k, 5 + step * i), new Size(width, height));
-                                    g.DrawRectangle(pen, rect);
                                     g.FillRectangle(System.Drawing.Brushes.Red, rect);
+                                }
+                                else if (i_maze.Coords[i][k] == null)
+                                {
+                                    g.FillRectangle(System.Drawing.Brushes.White, rect);
+                                }
+                                else if (i_maze.Coords[i][k] == 0)
+                                {
+                                    g.FillRectangle(System.Drawing.Brushes.Black, rect);
+                                }
+                                else if (i_maze.Coords[i][k] == 1)
+                                {
+                                    g.FillRectangle(System.Drawing.Brushes.LightGreen, rect);
                                 }
                                 else
                                 {
-                                    Rectangle rect = new Rectangle(new Point(300 + step * k, 5 + step * i), new Size(width, height));
-                                    g.DrawRectangle(pen, rect);
-                                    g.FillRectangle(System.Drawing.Brushes.Blue, rect);
+                                    g.FillRectangle(System.Drawing.Brushes.White, rect);
+                                    g.DrawString(i_maze.Coords[i][k] + "", new Font("Arial", 5), new SolidBrush(Color.Black), rect);
                                 }
 
 
@@ -119,7 +95,11 @@ namespace Pathfinder_c_sharp
 
 
                             }
+
+
+
                         }
+
                     }
                 }
 
@@ -132,6 +112,14 @@ namespace Pathfinder_c_sharp
         private void buttonDefault_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            new Thread(delegate () {
+                mySolver.solve(true, 1000);
+            }).Start();
+            
         }
     }
 }
