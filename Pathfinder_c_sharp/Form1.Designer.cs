@@ -32,7 +32,7 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDelay = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelStart = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonDefault = new System.Windows.Forms.Button();
             this.textBoxDensity = new System.Windows.Forms.TextBox();
@@ -41,7 +41,7 @@
             this.textBoxSizeX = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.panelStart.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,16 +80,18 @@
             this.textBoxDelay.Name = "textBoxDelay";
             this.textBoxDelay.Size = new System.Drawing.Size(55, 20);
             this.textBoxDelay.TabIndex = 3;
+            this.textBoxDelay.Text = "1000";
             // 
-            // panel1
+            // panelStart
             // 
-            this.panel1.Controls.Add(this.buttonStart);
-            this.panel1.Controls.Add(this.textBoxDelay);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(27, 145);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(96, 100);
-            this.panel1.TabIndex = 4;
+            this.panelStart.Controls.Add(this.buttonStart);
+            this.panelStart.Controls.Add(this.textBoxDelay);
+            this.panelStart.Controls.Add(this.label1);
+            this.panelStart.Location = new System.Drawing.Point(27, 180);
+            this.panelStart.Name = "panelStart";
+            this.panelStart.Size = new System.Drawing.Size(96, 100);
+            this.panelStart.TabIndex = 4;
+            this.panelStart.Visible = false;
             // 
             // panel2
             // 
@@ -101,7 +103,7 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.buttonGenerate);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(26, 7);
+            this.panel2.Location = new System.Drawing.Point(27, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(96, 133);
             this.panel2.TabIndex = 5;
@@ -122,6 +124,7 @@
             this.textBoxDensity.Name = "textBoxDensity";
             this.textBoxDensity.Size = new System.Drawing.Size(55, 20);
             this.textBoxDensity.TabIndex = 6;
+            this.textBoxDensity.Text = "20";
             // 
             // label3
             // 
@@ -138,6 +141,7 @@
             this.textBoxSizeY.Name = "textBoxSizeY";
             this.textBoxSizeY.Size = new System.Drawing.Size(55, 20);
             this.textBoxSizeY.TabIndex = 8;
+            this.textBoxSizeY.Text = "20";
             // 
             // textBoxSizeX
             // 
@@ -145,6 +149,7 @@
             this.textBoxSizeX.Name = "textBoxSizeX";
             this.textBoxSizeX.Size = new System.Drawing.Size(55, 20);
             this.textBoxSizeX.TabIndex = 7;
+            this.textBoxSizeX.Text = "20";
             // 
             // label4
             // 
@@ -171,11 +176,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 472);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelStart);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelStart.ResumeLayout(false);
+            this.panelStart.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -188,7 +193,7 @@
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxDelay;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelStart;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
