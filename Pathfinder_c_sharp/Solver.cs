@@ -8,7 +8,7 @@ namespace Pathfinder_c_sharp
 {
     class Solver
     {
-        private List<int[]> currentFields;//All Fields, that were filled with numbers last run
+        public List<int[]> currentFields;//All Fields, that were filled with numbers last run
         public Maze currentMaze;
         public Form1 myForm;
         public Solver(Form1 form)
@@ -23,8 +23,8 @@ namespace Pathfinder_c_sharp
             int?[][] Board = new int?[sizeX][];
             int[] endpoint = new int[2];
             Random ran = new Random();
-            Maze currentMaze=new Maze(Board, startingpoints, endpoint);
-            currentFields = new List<int[]>();
+            this.currentFields = new List<int[]>();
+            Maze currentMaze = new Maze(Board, this.currentFields, endpoint);
             while (!solvable(currentMaze))
             {
                 for (int i = 0; i < Board.Length; i++)
@@ -55,7 +55,7 @@ namespace Pathfinder_c_sharp
 
                     }
                 }
-                currentFields.Clear();
+                this.currentFields.Clear();
                 for (int i = 0; i < amount_startingpoints; i++)
                 {                    
                     startingpoints[i] = new int[] { 1,
@@ -66,14 +66,17 @@ namespace Pathfinder_c_sharp
                                                               
                                                               )
                                                     };
-                    currentFields.Add(new int[] { startingpoints[i][0], startingpoints[i][1] });
+                    this.currentFields.Add(startingpoints[i]);
                     Board[startingpoints[i][0]][startingpoints[i][1]] = 0;
                 }
                 endpoint = new int[] { Board.Length - 1, (int)Math.Round((float)ran.Next(1, Board[0].Length - 2)) };
                 Board[endpoint[0]][endpoint[1]] = -2;
-                currentMaze = new Maze(Board, startingpoints,endpoint);
+                currentMaze = new Maze(Board, this.currentFields, endpoint);
+                Console.WriteLine(currentMaze.startingPoints.Count + " maze startingpoints (generated"+ currentFields.Count+")");
+
             }
-            this.currentMaze = new Maze(Board, startingpoints, endpoint);
+            this.currentMaze = new Maze(Board, this.currentFields, endpoint);
+            Console.WriteLine(currentMaze.startingPoints.Count + " maze startingpoints");
             myForm.showMaze(currentMaze);
         }
         private bool solvable(Maze i_maze)
@@ -148,9 +151,10 @@ namespace Pathfinder_c_sharp
         {
             bool solved = false;
             List<int[]> nextcurrentfields=new List<int[]>();
-            while (!solved)
+            while (!solved &&!myForm.stopSolvingASAP)
             {
                 Console.WriteLine(currentFields.Count + " currentfields");
+                Console.WriteLine(currentMaze.startingPoints.Count+ " maze currentfields");
                 if (currentFields.Count == 0)
                 {
                     throw new ArgumentException("Unsolvable Maze");
@@ -216,12 +220,12 @@ namespace Pathfinder_c_sharp
             int smallestnum=999999999;
             int[] smallestidx=new int[] { 0,0};
             List<int[]> t = new List<int[]>();
-            if(currentMaze.Coords[x][y] > 0)
+            if(currentMaze.Coords[x][y] > 0  )
             {
                 t.Add(new int[2] { x, y });
             }
             
-            if (currentMaze.Coords[x][y] ==0)
+            if (currentMaze.Coords[x][y] ==0 || myForm.stopSolvingASAP)
             {
                 return t;
             }

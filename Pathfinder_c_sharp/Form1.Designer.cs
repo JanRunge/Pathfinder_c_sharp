@@ -41,13 +41,17 @@
             this.textBoxSizeX = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonStopSolving = new System.Windows.Forms.Button();
+            this.buttonRedraw = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.panelStart.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonGenerate
             // 
-            this.buttonGenerate.Location = new System.Drawing.Point(0, 106);
+            this.buttonGenerate.Location = new System.Drawing.Point(0, 107);
             this.buttonGenerate.Name = "buttonGenerate";
             this.buttonGenerate.Size = new System.Drawing.Size(96, 26);
             this.buttonGenerate.TabIndex = 0;
@@ -57,7 +61,7 @@
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(0, 74);
+            this.buttonStart.Location = new System.Drawing.Point(0, 27);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(96, 23);
             this.buttonStart.TabIndex = 1;
@@ -68,7 +72,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-3, 54);
+            this.label1.Location = new System.Drawing.Point(-3, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
             this.label1.TabIndex = 2;
@@ -76,25 +80,29 @@
             // 
             // textBoxDelay
             // 
-            this.textBoxDelay.Location = new System.Drawing.Point(41, 47);
+            this.textBoxDelay.Location = new System.Drawing.Point(41, 1);
             this.textBoxDelay.Name = "textBoxDelay";
-            this.textBoxDelay.Size = new System.Drawing.Size(55, 20);
+            this.textBoxDelay.Size = new System.Drawing.Size(33, 20);
             this.textBoxDelay.TabIndex = 3;
             this.textBoxDelay.Text = "1000";
             // 
             // panelStart
             // 
+            this.panelStart.Controls.Add(this.label5);
+            this.panelStart.Controls.Add(this.buttonStopSolving);
             this.panelStart.Controls.Add(this.buttonStart);
             this.panelStart.Controls.Add(this.textBoxDelay);
             this.panelStart.Controls.Add(this.label1);
-            this.panelStart.Location = new System.Drawing.Point(27, 180);
+            this.panelStart.Location = new System.Drawing.Point(31, 232);
             this.panelStart.Name = "panelStart";
-            this.panelStart.Size = new System.Drawing.Size(96, 100);
+            this.panelStart.Size = new System.Drawing.Size(96, 94);
             this.panelStart.TabIndex = 4;
             this.panelStart.Visible = false;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.buttonReset);
+            this.panel2.Controls.Add(this.buttonRedraw);
             this.panel2.Controls.Add(this.buttonDefault);
             this.panel2.Controls.Add(this.textBoxDensity);
             this.panel2.Controls.Add(this.label3);
@@ -105,7 +113,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(27, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(96, 133);
+            this.panel2.Size = new System.Drawing.Size(96, 191);
             this.panel2.TabIndex = 5;
             // 
             // buttonDefault
@@ -170,6 +178,45 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Size X";
             // 
+            // buttonStopSolving
+            // 
+            this.buttonStopSolving.Location = new System.Drawing.Point(0, 56);
+            this.buttonStopSolving.Name = "buttonStopSolving";
+            this.buttonStopSolving.Size = new System.Drawing.Size(96, 23);
+            this.buttonStopSolving.TabIndex = 0;
+            this.buttonStopSolving.Text = "Stop Solving";
+            this.buttonStopSolving.UseVisualStyleBackColor = true;
+            this.buttonStopSolving.Click += new System.EventHandler(this.buttonStopSolving_Click);
+            // 
+            // buttonRedraw
+            // 
+            this.buttonRedraw.Location = new System.Drawing.Point(0, 168);
+            this.buttonRedraw.Name = "buttonRedraw";
+            this.buttonRedraw.Size = new System.Drawing.Size(96, 23);
+            this.buttonRedraw.TabIndex = 10;
+            this.buttonRedraw.Text = "Redraw";
+            this.buttonRedraw.UseVisualStyleBackColor = true;
+            this.buttonRedraw.Click += new System.EventHandler(this.buttonRedraw_Click);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(1, 139);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(96, 23);
+            this.buttonReset.TabIndex = 11;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(76, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(20, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "ms";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +249,10 @@
         private System.Windows.Forms.TextBox textBoxDensity;
         private System.Windows.Forms.TextBox textBoxSizeY;
         private System.Windows.Forms.Button buttonDefault;
+        private System.Windows.Forms.Button buttonRedraw;
+        private System.Windows.Forms.Button buttonStopSolving;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.Label label5;
     }
 }
 

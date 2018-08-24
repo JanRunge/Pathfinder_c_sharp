@@ -16,7 +16,7 @@ namespace Pathfinder_c_sharp
         private Thread myThread;
         Solver mySolver;
         public delegate void del(Maze i_maze);
-
+        public bool stopSolvingASAP=false;
         public delegate void del2(Maze i_maze, List<int[]> changedFields);
 
 
@@ -170,6 +170,7 @@ namespace Pathfinder_c_sharp
         }
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            stopSolvingASAP = false;
             bool animation = true;
             if (textBoxDelay.Text == "")
             {
@@ -182,6 +183,28 @@ namespace Pathfinder_c_sharp
                 mySolver.solve(animation, delay);
             }).Start();
             
+        }
+
+        private void buttonRedraw_Click(object sender, EventArgs e)
+        {
+            showMaze(mySolver.currentMaze);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)//reset
+        {
+            this.stopSolvingASAP = true;
+            mySolver.currentMaze.reset();
+            showMaze(mySolver.currentMaze);
+
+            mySolver.currentFields.Clear();
+            mySolver.currentFields.AddRange(mySolver.currentMaze.startingPoints);
+            
+        }
+
+        private void buttonStopSolving_Click(object sender, EventArgs e)
+        {
+            this.stopSolvingASAP = true;
         }
     }
 }
