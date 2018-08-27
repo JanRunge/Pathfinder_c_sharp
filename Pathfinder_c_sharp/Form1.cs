@@ -65,7 +65,7 @@ namespace Pathfinder_c_sharp
                     using (Graphics g = this.CreateGraphics())
                     {
                         g.Clear(SystemColors.Control); //Clear the draw area
-                        using (Pen pen = new Pen(Color.White, 2))
+                        using (Pen pen = new Pen(Color.Black, 2))
                         {
                             for (int i = 0; i < Board.Length; i++)
                             {
@@ -159,11 +159,13 @@ namespace Pathfinder_c_sharp
             int density;
             int sizex;
             int sizey;
+            int cnt_startingpoints;
             Int32.TryParse(textBoxDensity.Text, out density);
             Int32.TryParse(textBoxSizeX.Text, out sizey);//x and y need to be switched, i cant be fucked to fix that
             Int32.TryParse(textBoxSizeY.Text, out sizex);
+            Int32.TryParse(textBoxStartingpoints.Text, out cnt_startingpoints);
             new Thread(delegate () {
-                mySolver.getBoard(sizex, sizey, density);
+                mySolver.getBoard(sizex, sizey, density, cnt_startingpoints);
             }).Start();
             panelStart.Visible = true;
             //this.tableLayoutPanel1.
@@ -175,14 +177,19 @@ namespace Pathfinder_c_sharp
             if (textBoxDelay.Text == "")
             {
                 textBoxDelay.Text = 0+"";
-                animation = false;
             }
             int delay;
             Int32.TryParse(textBoxDelay.Text, out delay);
+            if (delay == 0)
+            {
+                animation = false;
+            }
             new Thread(delegate () {
                 mySolver.solve(animation, delay);
             }).Start();
-            
+
+
+
         }
 
         private void buttonRedraw_Click(object sender, EventArgs e)
@@ -205,6 +212,11 @@ namespace Pathfinder_c_sharp
         private void buttonStopSolving_Click(object sender, EventArgs e)
         {
             this.stopSolvingASAP = true;
+        }
+
+        private void textBoxStartingpoints_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

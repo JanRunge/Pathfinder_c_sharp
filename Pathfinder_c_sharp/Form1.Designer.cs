@@ -33,7 +33,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxDelay = new System.Windows.Forms.TextBox();
             this.panelStart = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.buttonStopSolving = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.buttonRedraw = new System.Windows.Forms.Button();
             this.buttonDefault = new System.Windows.Forms.Button();
             this.textBoxDensity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,17 +45,15 @@
             this.textBoxSizeX = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.buttonStopSolving = new System.Windows.Forms.Button();
-            this.buttonRedraw = new System.Windows.Forms.Button();
-            this.buttonReset = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxStartingpoints = new System.Windows.Forms.TextBox();
             this.panelStart.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonGenerate
             // 
-            this.buttonGenerate.Location = new System.Drawing.Point(0, 107);
+            this.buttonGenerate.Location = new System.Drawing.Point(0, 125);
             this.buttonGenerate.Name = "buttonGenerate";
             this.buttonGenerate.Size = new System.Drawing.Size(96, 26);
             this.buttonGenerate.TabIndex = 0;
@@ -93,14 +95,35 @@
             this.panelStart.Controls.Add(this.buttonStart);
             this.panelStart.Controls.Add(this.textBoxDelay);
             this.panelStart.Controls.Add(this.label1);
-            this.panelStart.Location = new System.Drawing.Point(31, 232);
+            this.panelStart.Location = new System.Drawing.Point(28, 268);
             this.panelStart.Name = "panelStart";
             this.panelStart.Size = new System.Drawing.Size(96, 94);
             this.panelStart.TabIndex = 4;
             this.panelStart.Visible = false;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(76, 4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(20, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "ms";
+            // 
+            // buttonStopSolving
+            // 
+            this.buttonStopSolving.Location = new System.Drawing.Point(0, 56);
+            this.buttonStopSolving.Name = "buttonStopSolving";
+            this.buttonStopSolving.Size = new System.Drawing.Size(96, 23);
+            this.buttonStopSolving.TabIndex = 0;
+            this.buttonStopSolving.Text = "Stop Solving";
+            this.buttonStopSolving.UseVisualStyleBackColor = true;
+            this.buttonStopSolving.Click += new System.EventHandler(this.buttonStopSolving_Click);
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textBoxStartingpoints);
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.buttonReset);
             this.panel2.Controls.Add(this.buttonRedraw);
             this.panel2.Controls.Add(this.buttonDefault);
@@ -113,12 +136,32 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(27, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(96, 191);
+            this.panel2.Size = new System.Drawing.Size(96, 225);
             this.panel2.TabIndex = 5;
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Location = new System.Drawing.Point(0, 157);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(96, 23);
+            this.buttonReset.TabIndex = 11;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonRedraw
+            // 
+            this.buttonRedraw.Location = new System.Drawing.Point(-3, 186);
+            this.buttonRedraw.Name = "buttonRedraw";
+            this.buttonRedraw.Size = new System.Drawing.Size(96, 23);
+            this.buttonRedraw.TabIndex = 10;
+            this.buttonRedraw.Text = "Redraw";
+            this.buttonRedraw.UseVisualStyleBackColor = true;
+            this.buttonRedraw.Click += new System.EventHandler(this.buttonRedraw_Click);
             // 
             // buttonDefault
             // 
-            this.buttonDefault.Location = new System.Drawing.Point(41, 77);
+            this.buttonDefault.Location = new System.Drawing.Point(42, 96);
             this.buttonDefault.Name = "buttonDefault";
             this.buttonDefault.Size = new System.Drawing.Size(55, 23);
             this.buttonDefault.TabIndex = 9;
@@ -178,44 +221,23 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Size X";
             // 
-            // buttonStopSolving
+            // label6
             // 
-            this.buttonStopSolving.Location = new System.Drawing.Point(0, 56);
-            this.buttonStopSolving.Name = "buttonStopSolving";
-            this.buttonStopSolving.Size = new System.Drawing.Size(96, 23);
-            this.buttonStopSolving.TabIndex = 0;
-            this.buttonStopSolving.Text = "Stop Solving";
-            this.buttonStopSolving.UseVisualStyleBackColor = true;
-            this.buttonStopSolving.Click += new System.EventHandler(this.buttonStopSolving_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(-3, 82);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Entries";
             // 
-            // buttonRedraw
+            // textBoxStartingpoints
             // 
-            this.buttonRedraw.Location = new System.Drawing.Point(0, 168);
-            this.buttonRedraw.Name = "buttonRedraw";
-            this.buttonRedraw.Size = new System.Drawing.Size(96, 23);
-            this.buttonRedraw.TabIndex = 10;
-            this.buttonRedraw.Text = "Redraw";
-            this.buttonRedraw.UseVisualStyleBackColor = true;
-            this.buttonRedraw.Click += new System.EventHandler(this.buttonRedraw_Click);
-            // 
-            // buttonReset
-            // 
-            this.buttonReset.Location = new System.Drawing.Point(1, 139);
-            this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(96, 23);
-            this.buttonReset.TabIndex = 11;
-            this.buttonReset.Text = "Reset";
-            this.buttonReset.UseVisualStyleBackColor = true;
-            this.buttonReset.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(76, 4);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "ms";
+            this.textBoxStartingpoints.Location = new System.Drawing.Point(41, 75);
+            this.textBoxStartingpoints.Name = "textBoxStartingpoints";
+            this.textBoxStartingpoints.Size = new System.Drawing.Size(55, 20);
+            this.textBoxStartingpoints.TabIndex = 13;
+            this.textBoxStartingpoints.Text = "1";
+            this.textBoxStartingpoints.TextChanged += new System.EventHandler(this.textBoxStartingpoints_TextChanged);
             // 
             // Form1
             // 
@@ -253,6 +275,8 @@
         private System.Windows.Forms.Button buttonStopSolving;
         private System.Windows.Forms.Button buttonReset;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxStartingpoints;
+        private System.Windows.Forms.Label label6;
     }
 }
 
